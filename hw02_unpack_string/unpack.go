@@ -31,10 +31,8 @@ func Unpack(inputString string) (string, error) {
 			}
 			repeatCount, _ = strconv.Atoi(string(char))
 			outputString.WriteString(strings.Repeat(string(previousChar), repeatCount))
-		} else {
-			if Validate(previousChar) {
-				outputString.WriteRune(previousChar)
-			}
+		} else if Validate(previousChar) {
+			outputString.WriteRune(previousChar)
 		}
 		previousChar = char
 	}
